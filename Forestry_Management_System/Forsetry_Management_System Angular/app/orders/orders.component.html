@@ -1,0 +1,33 @@
+<div style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 700px;'>
+    <div  style="padding-top: 45px;">
+    <table class="table"  class="container">
+    <tr>
+        <th style="font-family: cursive;">Order Number</th>
+          <th style="font-family: cursive;">email</th>
+        <th style="font-family: cursive;">Product Id</th>
+        <th style="font-family: cursive;">Quantity</th>
+        <th style="font-family: cursive;">Status</th>
+        <th style="font-family: cursive;">Expected Delivery Date</th>
+        <th style="font-family: cursive;">Add Contract</th>
+       
+    
+    
+    </tr>
+
+    <tr *ngFor=' let order of orders'>
+        <td style="font-family: cursive;">{{order.orderNo}}</td>
+         <td style="font-family: cursive;">{{order.email}}</td>
+        <td style="font-family: cursive;">{{order.productId}}</td>
+         <td style="font-family: cursive;">{{order.quantity}}</td>
+         <td style="font-family: cursive;">{{order.status}}</td>
+         <td style="font-family: cursive;">{{order.expectedDeliveryDate}}</td>
+        
+        <td><button class='btn btn-success' (click)='addcontract(order)'>Add Contract</button></td>
+       
+
+
+    </tr>
+   
+</table>
+</div>
+</div>

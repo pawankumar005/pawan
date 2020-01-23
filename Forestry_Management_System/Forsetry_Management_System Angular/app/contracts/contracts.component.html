@@ -1,0 +1,32 @@
+<div style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 700px;'>
+    <div  style="padding-top: 45px;">
+    <table class="table" class="container" >
+    <tr>
+        <th style="font-family: cursive;">Contract Number</th>
+        <th style="font-family: cursive;">Email</th>
+        <th style="font-family: cursive;">Product Id</th>
+        <th style="font-family: cursive;">Delivery Date</th>
+        <th style="font-family: cursive;" >Quantity</th>
+        <th style="font-family: cursive;">Order number</th>
+        <th style="font-family: cursive;">status</th>
+        <th  *ngIf='isScheduler()'> Delete</th>
+    
+    
+    </tr>
+
+    <tr *ngFor=' let contract of contracts'>
+        <td style="font-family: cursive;">{{contract.contractNo}}</td>
+        <td style="font-family: cursive;">{{contract.email}}</td>
+        <td style="font-family: cursive;">{{contract.productId}}</td>
+        <td style="font-family: cursive;">{{contract.deliveryDate}}</td>
+        <td style="font-family: cursive;">{{contract.quantity}}</td>
+        <td style="font-family: cursive;"  >{{contract.orderNo}}</td>
+        <td style="font-family: cursive;"  >{{contract.status}}</td>
+        <td style="font-family: cursive;"><button class='btn btn-success'(click)='deleteContract(contract)' *ngIf='isScheduler()'>Delete</button></td>
+
+
+    </tr>
+   
+</table>
+    </div>
+</div>

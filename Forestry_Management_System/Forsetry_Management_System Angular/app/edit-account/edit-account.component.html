@@ -1,0 +1,61 @@
+<div
+style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 700px;'>
+
+ <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+ <div style="padding-top: 20px;">
+ 
+<div class="col-md-4 offset-md-4 ">
+    <form #updateClientForm='ngForm' (ngSubmit)='updateClient(updateClientForm)'>
+        <div class="card" style=" background-color: rgba(245, 245, 245, 0);" >
+            <div class="card-body">
+                <div class="form-group">
+                   
+                    <input type="hidden" name="clientId" id="clientId" #clientId='ngModel' [(ngModel)]='clientInfoService.selectedClient.clientId' 
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="clientName" style="font-family: cursive;">Client Name</label>
+                    <input type="text" name="clientName" id="clientName" #clientName='ngModel' [(ngModel)]='clientInfoService.selectedClient.clientName' 
+                        class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="streetAddress1" style="font-family: cursive;">Street Address 1</label>
+                    <input type="text" name="streetAddress1" id="streetAddress1" #streetAddress1='ngModel'  [(ngModel)]='clientInfoService.selectedClient.streetAddress1'
+                        required class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="streetAddress2" style="font-family: cursive;">Street Address 2</label>
+                    <input type="text" name="streetAddress2" id="streetAddress2" #streetAddress2='ngModel'  [(ngModel)]='clientInfoService.selectedClient.streetAddress2'
+                        required class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="town" style="font-family: cursive;">Town</label>
+                    <input type="text" name="town" id="town" #town='ngModel'  [(ngModel)]='clientInfoService.selectedClient.town' required class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="postalCode" style="font-family: cursive;">Postal code</label>
+                    <input type="number" name="postalCode" id="postalCode" #postalCode='ngModel'  [(ngModel)]='clientInfoService.selectedClient.postalCode' required
+                        pattern="[0-9]{6}" class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="email" style="font-family: cursive;">Email</label>
+                    <input type="text" name="email" id="email" #email='ngModel'  [(ngModel)]='clientInfoService.selectedClient.email' disabled  class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="telephone" style="font-family: cursive;">Telephone</label>
+                    <input type="number" name="telephone" id="telephone" #telephone='ngModel'  [(ngModel)]='clientInfoService.selectedClient.telephone' required style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;"
+                        pattern="[0-9]{9}" class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                   
+                    <input type="hidden" name="password" id="password" #password='ngModel'  [(ngModel)]='clientInfoService.selectedClient.password' required
+                        class="form-control">
+                </div>
+                <button type="submit" class="btn btn-outline-primary float-right">Modify</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" style="font-style: italic; font-family: cursive; color:rgb(255, 242, 227);">Forestry Management </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="/">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="add-client" *ngIf='isAdmin()'>Add-Client <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="clients" *ngIf='isAdmin() || isScheduler()'>Clients <span class="sr-only"></span></a>
+            </li>
+          
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="contracts" *ngIf='isAdmin() || isScheduler()'>Contracts <span class="sr-only"></span></a>
+            </li>
+           
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="orders" *ngIf='isScheduler()' >Orders <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="add-product" *ngIf='isAdmin()'>Add-Products<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" style="color: azure; font-family: cursive; font-style: italic;" routerLink="products" *ngIf='isClient() || isScheduler() || isAdmin()'>Products <span class="sr-only"></span></a>
+            </li>
+           
+            
+        </ul>
+       
+        <div class="dropdown" style="padding-right: 10px;" *ngIf='isClient()'>
+            <a class="btn btn-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTgdFAvSGTHVwyfjmISFRgn_d3LitQC6Gs4N-XIX01POaIvVR7v' style="border-radius: 55%
+                ;" height="30px">
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="client-info" style="font-family: cursive; font-style: italic;">Account Info</a>
+              <a class="dropdown-item" href="get-order" style="font-family: cursive; font-style: italic;">My Orders</a>
+              
+            </div>
+          </div>
+        <ul  class="navbar-nav mr-4 px mt-2 mt-lg-0" >
+            <li class="nav-item " >
+                <a class="nav-link"  style="color: azure; font-family: cursive; font-style: italic;" routerLink="/login" *ngIf='!isLoggedIn()'>Login<span class="sr-only" ></span></a>
+            </li>
+           
+           
+            <li class="nav-item" *ngIf='isLoggedIn()'>
+                <button class="btn btn-dark" (click)='logout()' style='font-family: cursive; font-style: italic;'> Logout</button>
+            </li>
+        </ul>
+       
+            
+          
+           
+           
+        
+    </div>
+</nav>

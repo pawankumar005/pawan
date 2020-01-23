@@ -1,0 +1,47 @@
+<div
+    style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 700px;'>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div style="padding-top: 20px;">
+<div class="col-md-4 offset-md-4 ">
+    <form #addContractForm='ngForm' (ngSubmit)='addContract(addContractForm)'>
+        <div class="card"style=" background-color: rgba(245, 245, 245, 0);">
+            <div class="card-body">
+                <div class="form-group">
+
+                    <input type="hidden" name="email" id="email" #email='ngModel'
+                        [(ngModel)]='orderService.selectedOrder.email' required class="form-control">
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" name="productId" id="productId" #productId='ngModel'
+                        [(ngModel)]='orderService.selectedOrder.productId' required class="form-control">
+                </div>
+                <div class="form-group">
+                     <label for="deliveryDate" style="font-family: cursive;">Delivery Date*</label>
+                    <input type="date" name="deliveryDate" id="deliveryDate" #deliveryDate='ngModel' ngModel required
+                        class="form-control"  style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" name="quantity" id="quantity" #quantity='ngModel'
+                        [(ngModel)]='orderService.selectedOrder.quantity' required class="form-control">
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" name="orderNo" id="orderNo" #orderNo='ngModel'
+                        [(ngModel)]='orderService.selectedOrder.orderNo' required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="status" style="font-family: cursive;">Status*</label>
+                   <input type="text" name="status" id="status" #status='ngModel' ngModel required
+                       class="form-control"  style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+               </div>
+
+                <button type="submit" class="btn btn-outline-primary float-right">Add Contract</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</div>

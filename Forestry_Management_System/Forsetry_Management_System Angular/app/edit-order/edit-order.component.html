@@ -1,0 +1,46 @@
+<div
+    style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 700px;'>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div style="padding-top: 20px;">
+<div class="col-md-4 offset-md-4 ">
+    <form #updateOrderForm='ngForm' (ngSubmit)='updateOrder(updateOrderForm)'>
+        <div class="card" style=" background-color: rgba(245, 245, 245, 0);">
+            <div class="card-body">
+                <div class="form-group">
+                   
+                    <input type="hidden" name="orderNo" id="orderNo" #orderNo='ngModel'[(ngModel)] ='orderService.selectedOrderToModify.orderNo'  
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                   
+                    <input type="hidden" name="email" id="email" #email='ngModel'[(ngModel)] ='orderService.selectedOrderToModify.email'  
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="hidden" name="productId" id="productId" #productId='ngModel'  [(ngModel)]='orderService.selectedOrderToModify.productId ' 
+                        required class="form-control" >
+                </div>
+               
+                <div class="form-group">
+                   
+                    <input type="hidden" name="quantity" id="quantity" #quantity='ngModel' [(ngModel)]='orderService.selectedOrderToModify.quantity' disabled required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="status" name="status" id="status" #status='ngModel' ngModel required class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+                <div class="form-group">
+                    <label for="expectedDeliveryDate">Expected Delivery Date</label>
+                    <input type="expectedDeliveryDate" name="expectedDeliveryDate" id="expectedDeliveryDate" #expectedDeliveryDate='ngModel' ngModel required class="form-control" style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                </div>
+               
+                <button type="submit" class="btn btn-outline-primary float-right">Modify Status</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+
+<div
+    style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 1200px;;;'>
+    <div class="col-md-4 offset-4 " style="padding-top: 10px;">
+        <input type="search" name="search" class="form-control" [(ngModel)]="search" placeholder="Enter product name to serach">
+    </div>
+<div  style= 'padding-top: 10px;'>
+<div class="col-md-4 card float-left" style= 'padding-top: 10px ; background-color:rgba(245, 245, 245, 0);padding-right: 10px;'   *ngFor='let product of products  | filterProduct: search'>
+    <img src="{{product.url}}" height="205px" class="card-img-top">
+    <div class="card-body" >
+    <h4 >{{product.productId}}: {{product.productName}}</h4>
+    <p style="font-weight: bold;"> Quantity Available: {{product.quantity}}</p>
+</div>
+<div class="card-footer">
+    <button *ngIf= 'isAdmin()' class="btn btn-outline-success"  style="float:right;" (click)='deleteProduct(product)'>Delete</button>
+    
+    <button *ngIf= 'isClient()' class="btn btn-outline-dark" style="float:right;" (click)= 'selectProduct(product)'>Order</button>
+</div>
+</div>
+</div>
+</div>

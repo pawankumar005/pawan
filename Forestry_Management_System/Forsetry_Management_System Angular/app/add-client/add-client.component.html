@@ -1,0 +1,140 @@
+<div
+    style='background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJWgmUCteyf2vorYHnCj78YgJptywNDb5kqvlSXS_3ZI84JuED"); background-size: cover; background-position: center; background-repeat: no-repeat; height: 1200px;'>
+
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+    <div style="padding-top: 20px;">
+        <div class="col-md-4 offset-md-4 ">
+            <form #addClientForm='ngForm' (ngSubmit)='addClient(addClientForm)'>
+                <div class="card" style=" background-color: rgba(245, 245, 245, 0);">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="clientName" style="font-family: cursive;">Client Name*</label>
+                            <input type="text" name="clientName" id="clientName" #clientName='ngModel' ngModel required
+                                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="20" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='clientName.touched && clientName.invalid'>
+                            <div class="alert alert-danger" *ngIf='clientName.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='clientName.errors.minlength'>
+                            *minimum 2 letters mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='clientName.errors.pattern'>
+                            *only alphabets are allowed
+                        </div>
+                        <div class="form-group">
+                            <label for="streetAddress1" style="font-family: cursive;">Street Address 1*</label>
+                            <input type="text" name="streetAddress1" id="streetAddress1" #streetAddress1='ngModel'
+                                ngModel required minlength="10" maxlength="45" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='streetAddress1.touched && streetAddress1.invalid'>
+                            <div class="alert alert-danger" *ngIf='streetAddress1.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='streetAddress1.errors.minlength'>
+                            *minimum 10 letters are required
+                        </div>
+                        <div class="form-group">
+                            <label for="streetAddress2" style="font-family: cursive;">Street Address 2*</label>
+                            <input type="text" name="streetAddress2" id="streetAddress2" #streetAddress2='ngModel'
+                                ngModel required minlength="10" maxlength="45" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div class="alert alert-danger" *ngIf='streetAddress2.errors.minlength'>
+                            *minimum 10 letters are required
+                        </div>
+                        <div *ngIf='streetAddress2.touched && streetAddress2.invalid'>
+                            <div class="alert alert-danger" *ngIf='streetAddress2.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="town" style="font-family: cursive;">Town*</label>
+                            <input type="text" name="town" id="town" #town='ngModel' ngModel required
+                                pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" minlength="2" maxlength="40" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='town.touched && town.invalid'>
+                            <div class="alert alert-danger" *ngIf='town.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='town.errors.minlength'>
+                            *minimum 2 letters mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='town.errors.pattern'>
+                            *only characters are allowed
+                        </div>
+                        <div class="form-group">
+                            <label for="postalCode" style="font-family: cursive;">Postal code*</label>
+                            <input type="text" name="postalCode" id="postalCode" #postalCode='ngModel' ngModel required
+                                minlength="6" maxlength="6" pattern="[0-9]+" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='postalCode.touched && postalCode.invalid'>
+                            <div class="alert alert-danger" *ngIf='postalCode.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='postalCode.errors.minlength'>
+                            *Postal code length should be of 6 digits
+                        </div>
+                        <div class="alert alert-danger" *ngIf='postalCode.errors.pattern'>
+                            *only numbers are allowed
+                        </div>
+                        <div class="form-group">
+                            <label for="email" style="font-family: cursive;">Email*</label>
+                            <input type="text" name="email" id="email" #email='ngModel' ngModel required
+                                class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='email.touched && email.invalid'>
+                            <div class="alert alert-danger" *ngIf='email.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='email.errors.email'>
+                            Enter Only Email Id
+
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone" style="font-family: cursive;">Telephone*</label>
+                            <input type="number" name="telephone" id="telephone" #telephone='ngModel' ngModel required
+                                pattern="^((\+){1}91){1}[1-9]{1}[0-9]{9}$
+                                " class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='telephone.touched && telephone.invalid'>
+                            <div class="alert alert-danger" *ngIf='telephone.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='telephone.errors.pattern'>
+                            Enter valid phone number
+                        </div>
+                        <div class="form-group">
+                            <label for="password" style="font-family: cursive;">Set password*</label>
+                            <input type="password" name="password" id="password" #password='ngModel' ngModel required
+                                pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,20}$" class="form-control"
+                                style="background-color:rgba(245, 245, 245, 0); border-color: black; border-width: thin;">
+                        </div>
+                        <div *ngIf='password.touched && password.invalid'>
+                            <div class="alert alert-danger" *ngIf='password.errors.required'>
+                                This field is Mandatory
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                            Password should contain 1 upper case, 1 special charecter, 1 number, 1 lower case and
+                            password length should be minimum of 8 charecters
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary float-right">Add Client</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
